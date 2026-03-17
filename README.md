@@ -1,32 +1,25 @@
-# Pizza365Campaign
+# Pizza365 Campaign - Frontend Standalone
 
-Dự án này thực hiện các yêu cầu về Daily Pizza Campaign (Mua 1 tặng 1 tùy theo ngày trong tuần).
+Dự án này là giao diện người dùng (Frontend) của hệ thống Pizza365, được tách ra thành project riêng biệt để dễ dàng quản lý và triển khai.
 
-## API Endpoints
+## Cài đặt và Chạy
+1. **Yêu cầu**: Đảm bảo 3 dịch vụ Backend sau đang chạy:
+    - `DailyCampaign` (Port 8088)
+    - `ComboMenuAPI` (Port 8082)
+    - `DrinkAPI` (Port 8083)
+2. **Cổng chạy**: Project này chạy tại cổng **8081**.
+3. **Cách khởi động**:
+   ```bash
+   mvn spring-boot:run
+   ```
+4. **Truy cập**: [http://localhost:8081/](http://localhost:8081/)
 
-### 1. Simple Campaign
-- **URL:** `http://localhost:8080/Pizza365Campaign/devcamp-simple`
-- **Method:** `GET`
-- **Kết quả trả về:** `test campaign`
-
-### 2. Welcome Campaign (Daily)
-- **URL:** `http://localhost:8080/Pizza365Campaign/devcamp-welcome`
-- **Method:** `GET`
-- **Tham số:** `name` (tùy chọn)
-- **Ví dụ:** `http://localhost:8080/Pizza365Campaign/devcamp-welcome?name=John`
-- **Cơ chế:** Trả về câu chào kèm theo thông tin khuyến mãi mua 1 tặng 1 dựa trên ngày hiện tại trong tuần (tiếng Việt).
-
-### 3. Lucky Dice
-- **URL:** `http://localhost:8080/Pizza365Campaign/lucky-dice`
-- **Method:** `GET`
-- **Tham số:** `username`, `firstname`, `lastname`
-- **Kết quả trả về:** "Xin chào: username, Số may mắn hôm nay của bạn là: [1-6]"
-
-## Giao diện Frontend
-Trang `index.html` được triển khai tại `http://localhost:8080/Pizza365Campaign/index.html`. Trang này sẽ tự động gọi API `/devcamp-welcome` và hiển thị lời chào theo ngày.
+## Chức năng chính
+- Hiển thị banner khuyến mại theo ngày từ `DailyCampaign`.
+- Hiển thị thông tin bảng giá combo Pizza từ `ComboMenuAPI`.
+- Tự động tải danh sách đồ uống từ `DrinkAPI`.
+- Form đặt hàng tích hợp đầy đủ AJAX kết nối server.
 
 ## Triển khai (Deployment)
-1. Đóng gói WAR: `mvn clean package -DskipTests`.
-2. Copy file `target/pizza365campaign-0.0.1-SNAPSHOT.war` vào thư mục `webapps/` của Tomcat.
-3. Đổi tên thành `Pizza365Campaign.war`.
-4. Truy cập qua URL context `/Pizza365Campaign`.
+- Đóng gói WAR: `mvn clean package -DskipTests`
+- File kết quả: `target/pizza365campaign.war`
