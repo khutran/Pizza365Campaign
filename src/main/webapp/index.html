@@ -359,7 +359,7 @@
   $(document).ready(function() {
       // Gọi API Daily Campaign (Task 57.10)
       $.ajax({
-          url: "http://localhost:8088/campaigns/",
+          url: "http://localhost:8080/campaigns",
           method: "GET",
           success: function(data) {
               $("#span-campaign-text").text(data);
@@ -372,7 +372,7 @@
 
       // Gọi API Menu Combo (Task 57.20)
       $.ajax({
-          url: "http://localhost:8082/combomenu/",
+          url: "http://localhost:8080/combomenu",
           method: "GET",
           success: function(data) {
               console.log("Combo menus fetched:", data);
@@ -385,7 +385,7 @@
 
       // Gọi API Đồ uống (Task 57.30)
       $.ajax({
-          url: "http://localhost:8083/drinks/",
+          url: "http://localhost:8080/drinks",
           method: "GET",
           success: function(data) {
               console.log("Drinks fetched:", data);

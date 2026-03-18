@@ -20,6 +20,14 @@ Dự án này là giao diện người dùng (Frontend) của hệ thống Pizza
 - Tự động tải danh sách đồ uống từ `DrinkAPI`.
 - Form đặt hàng tích hợp đầy đủ AJAX kết nối server.
 
+## API Endpoints
+
+### Drink API
+- **Endpoint**: `GET /drinks`
+- **Controller**: `CDrinkController`
+- **Output**: Returns an `ArrayList<CDrink>` containing the list of available drinks.
+- **Sample URL**: [http://localhost:8080/drinks](http://localhost:8080/drinks)
+
 ## Triển khai (Deployment)
 - Đóng gói WAR: `mvn clean package -DskipTests`
-- File kết quả: `target/pizza365campaign.war`
+- File kết quả: `target/drinks.war` (hoặc `target/pizza365campaign.war`)
